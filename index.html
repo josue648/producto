@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warcraft III: The Frozen Throne - La Épica Continúa</title>
+    <style>
+        /* Estilos base */
+        :root {
+            --ice-blue: #e7b1b1;
+            --frost-white: #f8f9fa;
+            --deep-blue: #5b6cb8;
+            --lich-purple: #374785;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', serif;
+            background-color: var(--frost-white);
+            color: var(--deep-blue);
+            line-height: 1.6;
+        }
+
+        /* Header y navegación */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('assets/frozen-throne-bg.jpg');
+            background-size: cover;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ice-blue);
+            text-shadow: 0 0 10px var(--ice-blue);
+        }
+
+        /* Contenido Hero */
+        .hero-content {
+            text-align: center;
+            padding-top: 20vh;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 10px var(--ice-blue);
+            margin-bottom: 1rem;
+        }
+        /* Secciones */
+        section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .frost-bg {
+            background: linear-gradient(135deg, rgba(168,208,230,0.2) 0%, rgba(36,48,94,0.8) 100%);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Historia */
+        .story-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Características */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .feature {
+            background: var(--deep-blue);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Campañas */
+        .campaigns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .campaign {
+            background: var(--deep-blue);
+            color: var(--frost-white);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .campaign:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Héroes */
+        .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(36, 48, 94, 0.8)),
+                url('img\descarga (8).jpg ');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: white;
+}
+
+}
+        .heroes-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        .hero-card {
+            flex: 0 0 300px;
+            background: var(--lich-purple);
+            color: var(--frost-white);
+            border-radius: 10px;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Botones */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--deep-blue), var(--lich-purple));
+            border: none;
+            padding: 1rem 2rem;
+            color: var(--frost-white);
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--ice-blue);
+        }
+
+        /* Precios */
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, var(--frost-white), var(--ice-blue));
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            flex: 0 1 350px;
+        }
+
+        .card.premium {
+            background: linear-gradient(135deg, var(--deep-blue), var(--lich-purple));
+            color: var(--frost-white);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .features-list li {
+            margin: 0.5rem 0;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-blue);
+            color: var(--frost-white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--frost-white);
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .pricing-cards {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .story-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con el Trono Helado -->
+    <header class="hero">
+        <nav class="nav-main">
+            <div class="logo">
+                <img src="img\Tải và cài đặt game Warcraft III Frozen Throne Full Version.jpg" alt="Frozen Throne Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#heroes">Héroes</a></li>
+                <li><a href="#campañas">Campañas</a></li>
+                <li><a href="#comprar">Comprar</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hero-content">
+            <h1>Warcraft III: The Frozen Throne</h1>
+            <p>La batalla por el Trono de Hielo comienza</p>
+            <a href="#comprar" class="cta-button">Únete a la Batalla</a>
+        </div>
+    </header>
+
+    <!-- Historia -->
+    <section id="historia" class="frost-bg">
+        <h2>La Saga Continúa</h2>
+        <div class="story-container">
+            <div class="story-text">
+                <p>Tras la corrupción de Arthas y su ascenso como Caballero de la Muerte, 
+                una nueva amenaza se cierne sobre Azeroth. El rey lich llama a su campeon a nortrenr u luche contra los demonios y sus haliados seres extraños y fantasma del pasado</p>
+            </div>
+            <div class="story-image">
+                <img src="img\atthas.jpg" alt="Arthas Menethil">
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section id="caracteristicas">
+        <h2>Nuevas Características</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <h3>Elfos Sangre</h3>
+                <p>una raza con una gran sed de sangre y de magia su lider kael'thas en busca de esperansa seguira al traidor en busca de sasiar su sed u aprovechara para para cobrar venganza</p>
+            </div>
+            <div class="feature">
+                <h3>Nagas</h3>
+                <p>Misteriosas criaturas marinas con poderes ancestrales dispuestas a seguir a quien sea que demuestre gran poder magico sin importarles quien sea, por esta razon seguiran a Ilidan </p>
+            </div>
+            <div class="feature">
+                <h3>Nuevos Héroes</h3>
+                <p>Más de 6 nuevos héroes para cada raza:centilesas, mago sangriento,señores de la cripta y casadores de las sombras y mas </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campañas -->
+    <section id="campañas" class="campaigns-section">
+        <h2>Campañas Épicas</h2>
+        <div class="campaigns-grid">
+            <div class="campaign">
+                <h3>Terror de los Mares</h3>
+                <p>Sigue a Maiev en la cacería de Illidan</p>
+            </div>
+            <div class="campaign">
+                <h3>Maldición de los Abandonados</h3>
+                <p>Lidera a Sylvanas en su venganza</p>
+            </div>
+            <div class="campaign">
+                <h3>La Ascensión del Rey Lich</h3>
+                <p>Testimonia el destino final de Arthas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Héroes -->
+    <section id="heroes" class="heroes-section">
+        <h2>Héroes Legendarios</h2>
+        <div class="heroes-carousel">
+            <div class="hero-card">
+                <img src="img\ILIDAN.jpg" alt="Illidan Stormrage">
+                <h3>Illidan Stormrage</h3>
